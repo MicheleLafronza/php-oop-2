@@ -1,5 +1,8 @@
 <?php
 
+require_once __DIR__ . '/data/db.php';
+require_once __DIR__ . '/model/Product.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -25,46 +28,20 @@
         <div class="row">
 
             <!-- scheda prodotto -->
+            <?php foreach($products as $product): ?>
             <div class="card col-4">
                 <!-- immagine prodotto -->
-                <img src="..." class="card-img-top" alt="...">
+                <img src="<?php $product->getImg() ?>" class="card-img-top" alt="...">
                 <!-- dettagli prodotto -->
                 <div class="card-body">
-                    <h5 class="card-title">Titolo Prodotto</h5>
-                    <p class="card-text">Descrizione prodotto</p>
+                    <h5 class="card-title"><?php echo $product->getTitle()?></h5>
+                    <p class="card-text"><?php echo $product->getDes()?></p>
                     <i class="fa-solid fa-dog"></i>
-                    <p class="card-text">Prezzo: 1,00$</p>
+                    <p class="card-text"><?php echo $product->getPrice()?></p>
                     <a href="#" class="btn btn-primary">Compra</a>
                 </div>
             </div>
-
-            <!-- scheda prodotto -->
-            <div class="card col-4">
-                <!-- immagine prodotto -->
-                <img src="..." class="card-img-top" alt="...">
-                <!-- dettagli prodotto -->
-                <div class="card-body">
-                    <h5 class="card-title">Titolo Prodotto</h5>
-                    <p class="card-text">Descrizione prodotto</p>
-                    <i class="fa-solid fa-dog"></i>
-                    <p class="card-text">Prezzo: 1,00$</p>
-                    <a href="#" class="btn btn-primary">Compra</a>
-                </div>
-            </div>
-
-            <!-- scheda prodotto -->
-            <div class="card col-4">
-                <!-- immagine prodotto -->
-                <img src="..." class="card-img-top" alt="...">
-                <!-- dettagli prodotto -->
-                <div class="card-body">
-                    <h5 class="card-title">Titolo Prodotto</h5>
-                    <p class="card-text">Descrizione prodotto</p>
-                    <i class="fa-solid fa-dog"></i>
-                    <p class="card-text">Prezzo: 1,00$</p>
-                    <a href="#" class="btn btn-primary">Compra</a>
-                </div>
-            </div>
+            <?php endforeach; ?>
 
         </div>
 
