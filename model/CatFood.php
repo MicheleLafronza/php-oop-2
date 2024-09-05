@@ -1,6 +1,6 @@
 <?php
 
-    class DogFood extends DogProduct{
+    class CatFood extends CatProduct{
 
         protected string $food_type;
         protected array $ingredients = [];
@@ -15,15 +15,16 @@
 
         // GETTERS
 
-        public function getFoodDogType(){
+        public function getFoodCatType(){
 
             return $this->food_type;
 
         }
 
-        public function getFoodDogIngrendients(){
+        public function getFoodCatIngrendients(){
 
             return $this->ingredients;
 
         }
+
     }
