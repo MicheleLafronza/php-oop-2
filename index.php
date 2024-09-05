@@ -3,7 +3,7 @@
 require_once __DIR__ . '/data/db.php';
 require_once __DIR__ . '/model/Product.php';
 require_once __DIR__ . '/model/Animal.php';
-require_once __DIR__ . '/model/Category.php';
+require_once __DIR__ . '/model/Toy.php';
 
 
 
@@ -48,7 +48,16 @@ require_once __DIR__ . '/model/Category.php';
                     endif;
                     ?>
                     <p class="card-text"><?php echo $product->getPrice()?></p>
-                    <p class="card-text"><?php echo $product->getCategory()?></p>
+                    <?php 
+                    if (method_exists($product, 'getToy')) {
+                        echo "<p>{$product->getToy()}</p>";
+                    }
+                    ?>
+                    <?php 
+                    if (method_exists($product, 'getFood')) {
+                        echo "<p>{$product->getFood()}</p>";
+                    }
+                    ?>
                     <a href="#" class="btn btn-primary">Compra</a>
                 </div>
             </div>
