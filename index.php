@@ -2,6 +2,10 @@
 
 require_once __DIR__ . '/data/db.php';
 require_once __DIR__ . '/model/Product.php';
+require_once __DIR__ . '/model/Animal.php';
+require_once __DIR__ . '/model/Category.php';
+
+
 
 ?>
 
@@ -31,13 +35,20 @@ require_once __DIR__ . '/model/Product.php';
             <?php foreach($products as $product): ?>
             <div class="card col-4">
                 <!-- immagine prodotto -->
-                <img src="<?php $product->getImg() ?>" class="card-img-top" alt="...">
+                <img src="<?php echo $product->getImg() ?>" class="card-img-top" alt="...">
                 <!-- dettagli prodotto -->
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $product->getTitle()?></h5>
                     <p class="card-text"><?php echo $product->getDes()?></p>
-                    <i class="fa-solid fa-dog"></i>
+                    <?php
+                    if ($product->getAnimal() == 'dog'):
+                        echo '<i class="fa-solid fa-dog"></i>';
+                    elseif ($product->getAnimal() == 'cat'):
+                        echo '<i class="fa-solid fa-cat"></i>';
+                    endif;
+                    ?>
                     <p class="card-text"><?php echo $product->getPrice()?></p>
+                    <p class="card-text"><?php echo $product->getCategory()?></p>
                     <a href="#" class="btn btn-primary">Compra</a>
                 </div>
             </div>

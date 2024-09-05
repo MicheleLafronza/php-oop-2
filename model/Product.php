@@ -1,6 +1,7 @@
 <?php
 
     require_once __DIR__ . '/../data/db.php';
+    
 
     // classe principale per ogni prodotto
     class Product {
