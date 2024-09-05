@@ -6,36 +6,33 @@
     // classe principale per ogni prodotto
     class Product {
 
-        // usiamo protected per passarle alle classi figlio
-        protected string $title;
-        protected float $price;
-        protected string $description;
-        protected string $image;
+       protected string $name;
+       protected float $price;
+       protected string $description;
 
-        public function __construct(string $_title, float $_price, string $_description, string $_image){
-
-            $this->title = $_title;
+       public function __construct(string $_name, float $_price, string $_description)
+       {
+            $this->name = $_name;
             $this->price = $_price;
             $this->description = $_description;
-            $this->image = $_image;
-        }
+       }
 
-        // getter
-        public function getTitle(){
-            return $this->title;
-        }
+    //    GETTERS
+       public function getName(){
 
-        public function getPrice(){
-            return "Prezzo: $this->price €";
-        }
+            return $this->name;
 
-        public function getDes(){
+       }
+
+       public function getPrice(){
+
+            return $this->price;
+
+       }
+
+       public function getDes(){
+
             return $this->description;
-        }
 
-        public function getImg(){
-            return $this->image;
-        }
-
-
+       }
     }

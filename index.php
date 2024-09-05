@@ -2,9 +2,11 @@
 
 require_once __DIR__ . '/data/db.php';
 require_once __DIR__ . '/model/Product.php';
-require_once __DIR__ . '/model/Animal.php';
-require_once __DIR__ . '/model/Toy.php';
+require_once __DIR__ . '/model/DogProduct.php';
+require_once __DIR__ . '/model/CatProduct.php';
+require_once __DIR__ . '/model/DogFood.php';
 
+var_dump($db);
 
 
 ?>
@@ -32,36 +34,22 @@ require_once __DIR__ . '/model/Toy.php';
         <div class="row">
 
             <!-- scheda prodotto -->
-            <?php foreach($products as $product): ?>
+            
             <div class="card col-4">
                 <!-- immagine prodotto -->
-                <img src="<?php echo $product->getImg() ?>" class="card-img-top" alt="...">
+                <img src="..." class="card-img-top" alt="...">
                 <!-- dettagli prodotto -->
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $product->getTitle()?></h5>
-                    <p class="card-text"><?php echo $product->getDes()?></p>
-                    <?php
-                    if ($product->getAnimal() == 'dog'):
-                        echo '<i class="fa-solid fa-dog"></i>';
-                    elseif ($product->getAnimal() == 'cat'):
-                        echo '<i class="fa-solid fa-cat"></i>';
-                    endif;
-                    ?>
-                    <p class="card-text"><?php echo $product->getPrice()?></p>
-                    <?php 
-                    if (method_exists($product, 'getToy')) {
-                        echo "<p>{$product->getToy()}</p>";
-                    }
-                    ?>
-                    <?php 
-                    if (method_exists($product, 'getFood')) {
-                        echo "<p>{$product->getFood()}</p>";
-                    }
-                    ?>
+                    <h5 class="card-title">Titolo</h5>
+
+                    <p class="card-text">Testo 1</p>
+                    
+                    <p class="card-text">Testo 2</p>
+                    
                     <a href="#" class="btn btn-primary">Compra</a>
                 </div>
             </div>
-            <?php endforeach; ?>
+           
 
         </div>
 
